@@ -1,0 +1,26 @@
+name: IaC Security Scan
+
+on:
+  push:
+    paths:
+      - 'iac/**.tf'
+      - '.github/workflows/iac-scan.yml'
+
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Run Checkov scan on Terraform code
+        run: checkov -d iac/
