@@ -1,4 +1,4 @@
-# DevSecOps Project: Terraform EC2 + Trivy/Checkov Scan
+# DevSecOps Project: Terraform EC2 + Checkov Scan
 
 This project demonstrates how to create an EC2 instance using Terraform and scan the infrastructure code using Trivy and/or Checkov via GitHub Actions.
 
